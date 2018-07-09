@@ -6,6 +6,13 @@ evolving for some time and there are a number of historical RFCs. This
 repository is also tracking the current state of the feature and its
 development.
 
+## Sub-RFCS:
+
+* [introduction of impl trait](impl-trait.md)
+* [impl trait in argument position](expand-impl-trait.md)
+* [introduction of nameabole impl trait](existential-types.md)
+* [type grammar inconsistency fix](https://github.com/rust-lang/rfcs/blob/master/text/2250-finalize-impl-dyn-syntax.md)
+
 # Short explanation of the feature
 
 `impl Trait` is the same syntax for both
