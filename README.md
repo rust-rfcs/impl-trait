@@ -79,6 +79,36 @@ or
 
 so `fn foo<U: Trait2>(u: U)` and fn `foo(u: impl Trait2)` are exactly the same function except in syntax.
 
+### Argument position `impl Trait` is also existential types
+
+You might have heard this argument and gotten confused.
+Well, this argument is technically correct, which is the best kind of correct.
+But also very unhelpful for human brains not juggling existential and
+universal quantifiers in their head frequently.
+
+The reason this argument exists (pun intended) is that you can move quantifiers into parentheses
+similar to how `-(x + y)` can be changed to `-x - y`:
+
+```
+∀ U: Trait2.
+    fn i(U)
+```
+
+is the same thing as
+
+
+```
+fn i(∃ U: Trait2. U)
+```
+
+Which in plain english means something along the lines of
+
+> There is a function `i` for which there exists a type U that is its first argument.
+
+I probably got that not quite mathematically right, but explaining that without
+symbols breaks my brain. So that's pretty much why mostly you hear that argument
+position impl Trait is a `universal quantifier` on the function.
+
 ## All of the above
 
 A function `fn f<T: Trait1>(t: T, u: impl Trait2) -> impl Trait3` means
